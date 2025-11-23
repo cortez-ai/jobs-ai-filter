@@ -1,0 +1,6 @@
+{
+  "error": true,
+  "timestamp": "2025-07-10T14:11:54.333Z",
+  "message": "HTTP error! status: 403 - Forbidden",
+  "stage": "main_execution"
+}

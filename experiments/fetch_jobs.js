@@ -216,7 +216,7 @@ const main = async () => {
 };
 
 // Export functions for potential reuse
-// export { displayJobSummary, filterJobs, saveJobData, searchJobs };
+export { displayJobSummary, filterJobs, saveJobData, searchJobs };
 
 // Check if this file is being run directly
 // const isMainModule =
