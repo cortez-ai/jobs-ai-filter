@@ -1,44 +1,40 @@
-import { Button } from "@/components/ui/button";
-import { Textarea } from "@/components/ui/textarea";
-import { useApp } from "@/contexts/AppContext";
-import { hasOpenAIApiKey } from "@/services/aiService";
-import { AlertCircle, Loader2, Settings } from "lucide-react";
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { PreferencesModal } from "./PreferencesModal";
+import { Button } from '@/components/ui/button'
+import { Textarea } from '@/components/ui/textarea'
+import { useApp } from '@/contexts/AppContext'
+import { getProvider } from '@/services/aiService'
+import { AlertCircle, Loader2, Settings } from 'lucide-react'
+import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
+import { PreferencesModal } from './PreferencesModal'
+
+const provider = getProvider('poe')
 
 interface JobListingInputProps {
-  onAnalyze: (jobListings: string) => void;
-  isAnalyzing: boolean;
+  onAnalyze: (jobListings: string) => void
+  isAnalyzing: boolean
 }
 
-export const JobListingInput: React.FC<JobListingInputProps> = ({
-  onAnalyze,
-  isAnalyzing,
-}) => {
-  const { hasPreferences } = useApp();
-  const [jobListings, setJobListings] = useState("");
-  const [showPreferences, setShowPreferences] = useState(false);
-  const navigate = useNavigate();
-  const hasApiKey = hasOpenAIApiKey();
+export const JobListingInput: React.FC<JobListingInputProps> = ({ onAnalyze, isAnalyzing }) => {
+  const { hasPreferences } = useApp()
+  const [jobListings, setJobListings] = useState('')
+  const [showPreferences, setShowPreferences] = useState(false)
+  const navigate = useNavigate()
+  const hasApiKey = provider.hasApiKey()
 
   const handleAnalyze = () => {
     if (jobListings.trim()) {
-      onAnalyze(jobListings);
+      onAnalyze(jobListings)
     }
-  };
+  }
 
-  const canAnalyze =
-    jobListings.trim() && hasPreferences && hasApiKey && !isAnalyzing;
+  const canAnalyze = jobListings.trim() && hasPreferences && hasApiKey && !isAnalyzing
 
   return (
     <div className="max-w-4xl mx-auto p-6 space-y-6">
       {/* Header with preferences button */}
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-3xl font-bold text-white mb-2">
-            Job Listing Filter
-          </h1>
+          <h1 className="text-3xl font-bold text-white mb-2">Job Listing Filter</h1>
           {!hasPreferences && (
             <p className="text-gray-400 text-sm">
               Configure your preferences to start filtering job listings
@@ -47,7 +43,7 @@ export const JobListingInput: React.FC<JobListingInputProps> = ({
           {!hasApiKey && (
             <p className="text-amber-400 text-sm flex items-center gap-2">
               <AlertCircle className="h-4 w-4" />
-              OpenAI API key required for AI analysis
+              AI service API key required for AI analysis
             </p>
           )}
         </div>
@@ -64,9 +60,7 @@ export const JobListingInput: React.FC<JobListingInputProps> = ({
       {/* Job listings input */}
       <div className="space-y-4">
         <div>
-          <label className="text-white text-sm font-medium mb-2 block">
-            Paste Job Listings
-          </label>
+          <label className="text-white text-sm font-medium mb-2 block">Paste Job Listings</label>
           <Textarea
             value={jobListings}
             onChange={(e) => setJobListings(e.target.value)}
@@ -86,7 +80,7 @@ export const JobListingInput: React.FC<JobListingInputProps> = ({
               Analyzing with AI...
             </>
           ) : (
-            "Analyze Job Listings with AI"
+            'Analyze Job Listings with AI'
           )}
         </Button>
 
@@ -103,10 +97,7 @@ export const JobListingInput: React.FC<JobListingInputProps> = ({
         )}
       </div>
 
-      <PreferencesModal
-        open={showPreferences}
-        onOpenChange={setShowPreferences}
-      />
+      <PreferencesModal open={showPreferences} onOpenChange={setShowPreferences} />
     </div>
-  );
-};
+  )
+}

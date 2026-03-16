@@ -1,73 +1,15 @@
-# Welcome to your Lovable project
+# job-list-filter
 
-## Project info
+This is a simple app I created to help filter job offers based on my preferences. You can simply paste up do dozens of job postings along with their descriptions and the AI agent will filter them for you. Alternatively you can also paste hundreds of job titles and the AI will do its best to classify them even without description.
 
-**URL**: https://lovable.dev/projects/89ae392d-6ed0-451f-9571-b642ce94e5e3
+Right now only the POE integration is working.
 
-## How can I edit this code?
+[AI notice] - I like to place this in my projects where most of the code is AI generated. I used the Lovable platform for seeding the bulk of the code. [Here's](https://unequaled-shrimp-5b4.notion.site/Building-Apps-with-AI-Lovable-vs-Builder-io-Tested-by-a-developer-2176ed8450e68007ab2ad1ff83c624aa?pvs=74) a small post I made about my experience with lovable.
 
-There are several ways of editing your application.
-
-**Use Lovable**
-
-Simply visit the [Lovable Project](https://lovable.dev/projects/89ae392d-6ed0-451f-9571-b642ce94e5e3) and start prompting.
-
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
-
-**Edit a file directly in GitHub**
-
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
-
-**Use GitHub Codespaces**
-
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with:
+This project uses:
 
 - Vite
 - TypeScript
 - React
 - shadcn-ui
 - Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/89ae392d-6ed0-451f-9571-b642ce94e5e3) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
